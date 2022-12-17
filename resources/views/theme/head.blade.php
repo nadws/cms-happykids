@@ -82,8 +82,10 @@
     .form-group {
         padding: 8px;
     }
-    .border {
+    .border-a {
         border-radius: 2rem;
+        padding: 5px;
+        border-color: #ffc107;
     }
 </style>
 @yield('styles')

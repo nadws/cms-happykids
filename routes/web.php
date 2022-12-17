@@ -91,6 +91,9 @@ Route::post('/save_tentang', function(Request $r){
 Route::post('/save_warna', function(Request $r){
     DB::table('h1')->where('id_h1', 16)->update(['isi' => $r->warna1]);
     DB::table('h1')->where('id_h1', 17)->update(['isi' => $r->warna2]);
+    DB::table('h1')->where('id_h1', 30)->update(['isi' => $r->fontc1]);
+    DB::table('h1')->where('id_h1', 31)->update(['isi' => $r->fontc2]);
+    DB::table('h1')->where('id_h1', 32)->update(['isi' => $r->fontc3]);
 
     return redirect()->route('dashboard');
 })->name('save_warna');
@@ -101,6 +104,22 @@ Route::post('/save_teks_janji', function(Request $r){
 })->name('save_teks_janji');
 
 Route::post('/save_teks_tamu', function(Request $r){
+
+    $img = DB::table('h1')->where('id_h1', 29)->first();
+    $img_dulu = $img->isi;
+
+    if($logo = $r->file('img_tentang')) {
+        $namaImg = $logo->getClientOriginalName();
+        $lokasi = 'assets/img/';
+        unlink($lokasi.$img_dulu);
+
+        $logo->move($lokasi, $namaImg);
+        DB::table('h1')->where('id_h1', 29)->update(['isi' => $namaImg]);
+
+    } else {
+        DB::table('h1')->where('id_h1', 29)->update(['isi' => $img_dulu]);
+    }
+
     $data = [
         'teks1',
         'teks2',
@@ -117,6 +136,8 @@ Route::post('/save_teks_tamu', function(Request $r){
     foreach($data as $i => $d) {
         DB::table('h1')->where('id_h1', $i + 19)->update(['isi' => $r->$d]);
     }
+
+
 
     return redirect()->route('dashboard');
 })->name('save_teks_tamu');
@@ -138,6 +159,9 @@ Route::get('/dashboard', function () {
         'email' => DB::table('h1')->where('id_h1', 14)->first()->isi,
         'maps' => DB::table('h1')->where('id_h1', 15)->first()->isi,
         'warna' => DB::table('h1')->where('id_h1', 16)->first()->isi,
+        'fontc1' => DB::table('h1')->where('id_h1', 30)->first()->isi,
+        'fontc2' => DB::table('h1')->where('id_h1', 31)->first()->isi,
+        'fontc3' => DB::table('h1')->where('id_h1', 32)->first()->isi,
         'warna_bg' => DB::table('h1')->where('id_h1', 17)->first()->isi,
         'teks_janji' => DB::table('h1')->where('id_h1', 18)->first()->isi,
 
@@ -152,6 +176,7 @@ Route::get('/dashboard', function () {
         'bca_norek' => DB::table('h1')->where('id_h1', 26)->first()->isi,
         'wa_admin' => DB::table('h1')->where('id_h1', 27)->first()->isi,
         'wa_nohp' => DB::table('h1')->where('id_h1', 28)->first()->isi,
+        'img_tamu' => DB::table('h1')->where('id_h1', 29)->first()->isi,
     ];
     return view('home.content', $data);
 })->name('dashboard');

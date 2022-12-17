@@ -1,14 +1,24 @@
 
 <!-- Navbar Start -->
 
-
-<div class="container-fluid sticky-top shadow-sm" style="background-color: {{$warna}}">
+<style>
+    .style1 {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 80px;
+        height: 50px;
+        border: none;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+</style>
+<div class="container-fluid sticky-top shadow-sm warna1" style="background-color: {{$warna}}">
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light py-3 py-lg-0" style="background-color: {{$warna}}">
+        <nav class="navbar warna1 navbar-expand-lg navbar-light py-3 py-lg-0" style="background-color: {{$warna}}">
             <a href="#" data-bs-toggle="modal" data-bs-target="#edit-h1" class="navbar-brand">
                 <h1 data-bs-toggle="tooltip" data-bs-placement="top"
                 data-bs-custom-class="custom-tooltip"
-                data-bs-title="teks logo" class="m-0 text-uppercase text-secondary border border-danger border-5" style="padding: 3px; border-color: {{$warna_bg}}">
+                data-bs-title="teks logo" class="m-0 text-uppercase border border-5 fwarna1 border-a" style="color: {{$fontc1}};">
                     <img data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-custom-class="custom-tooltip"
                     data-bs-title="logo navbar" src="{{ asset('assets/img/'.$img.'') }}" width="100" height="80" alt="">
@@ -23,19 +33,19 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="#" class="nav-item nav-link" style="font-size: 15px">Beranda</a>
-                    <a href="#load-about" class="nav-item nav-link" style="font-size: 15px">Tentang Kami</a>
+                    <a href="#" class="nav-item nav-link fwarna1" style="font-size: 15px;color: {{$fontc1}};">Beranda</a>
+                    <a href="#load-about" class="nav-item nav-link fwarna1" style="font-size: 15px;color: {{$fontc1}};">Tentang Kami</a>
                     {{-- <a href="#load-service" class="nav-item nav-link" style="font-size: 15px">Service</a> --}}
                     {{-- <a href="#load-appointment" class="nav-item nav-link" style="font-size: 15px">Buat Janji</a> --}}
                 </div>
                 
-                <form action="{{ route('logout') }}" method="post">
+                {{-- <form action="{{ route('logout') }}" method="post">
                     @csrf
                     <button type="button" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-custom-class="custom-tooltip"
                     data-bs-title="Logout" class="btn btn-rounded btn-danger" style="margin-left: 10px" onclick="event.preventDefault();
                     this.closest('form').submit();">Logout</button>
-                </form>
+                </form> --}}
             </div>
         </nav>
         
@@ -88,21 +98,39 @@
                   </button>
              </div>
              <div class="modal-body">
+                <center>
                 <div class="row">
-
-                    <div class="col-4">
-                        <input class="form-control" type="color" value="{{$warna}}" name="warna1">
+                    <h5>Colors</h5>
+                    <div class="col-lg-6">
+                        <input class="form-control style1" id="warna1" type="color" value="{{$warna}}" name="warna1">
+                        <label for="" class="text-secondary ml-2">Warna 1</label>
                         {{-- <input placeholder="warna hexa tanpa '#'" id="warna_val" name="warna1" value="{{ $warna }}" type="text" class="form-control"> --}}
                     </div>
-                    <div class="col-4">
-                        <label for="exampleColorInput"  class="form-label"><input type="color" value="{{$warna_bg}}" name="warna2"></label>
+                    <div class="col-lg-6">
+                        <input class="form-control style1" id="warna2" type="color" value="{{$warna_bg}}" name="warna2">
+                        <label for="" class="text-secondary ml-2">Warna 2</label>
                         {{-- <input placeholder="warna hexa tanpa '#'" id="warna_val" name="warna2" value="{{ $warna_bg }}" type="text" class="form-control"> --}}
                     </div>
-                    <div class="col-4">
-                        <label for="exampleColorInput"  class="form-label"><input type="color" value="{{$warna}}"></label>
-                        {{-- <input placeholder="warna hexa tanpa '#'" id="warna_val" name="warna3" value="{{ $warna }}" type="text" class="form-control"> --}}
+                </div>
+                <div class="row mt-5">
+                    <h5>Font Colors</h5>
+                    <div class="col-lg-4">
+                        <input class="form-control style1" id="fwarna1" type="color" value="{{$fontc1}}" name="fontc1">
+                        <label for="" class="text-secondary ml-2">Warna 1</label>
+                        {{-- <input placeholder="warna hexa tanpa '#'" id="warna_val" name="warna1" value="{{ $warna }}" type="text" class="form-control"> --}}
+                    </div>
+                    <div class="col-lg-4">
+                        <input class="form-control style1" id="fwarna2" type="color" value="{{$fontc2}}" name="fontc2">
+                        <label for="" class="text-secondary ml-2">Warna 2</label>
+                        {{-- <input placeholder="warna hexa tanpa '#'" id="warna_val" name="warna2" value="{{ $warna_bg }}" type="text" class="form-control"> --}}
+                    </div>
+                    <div class="col-lg-4">
+                        <input class="form-control style1" id="fwarna3" type="color" value="{{$fontc3}}" name="fontc3">
+                        <label for="" class="text-secondary ml-2">Warna 3</label>
+                        {{-- <input placeholder="warna hexa tanpa '#'" id="warna_val" name="warna2" value="{{ $warna_bg }}" type="text" class="form-control"> --}}
                     </div>
                 </div>
+                </center>
              </div>
              <div class="modal-footer">
                   <button type="submit" class="btn btn-primary">Edit/Save</button>
@@ -113,19 +141,21 @@
 </form>
 @section('scripts')
 <script>
-    
+    $(document).on('change', '#warna1', function(){
+        $('.warna1').css('background-color', $(this).val())
+    })
+    $(document).on('change', '#warna2', function(){
+        $('.warna2').css('background-color', $(this).val())
+    })
 
-    $(document).on('submit', '#save_warna', function(){
-        const rgba2hex = (rgba) => `#${rgba.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+\.{0,1}\d*))?\)$/).slice(1).map((n, i) => (i === 3 ? Math.round(parseFloat(n) * 255) : parseFloat(n)).toString(16).padStart(2, '0').replace('NaN', '')).join('')}`
-        var warna = $("#warna_val").val()
-        var css = $(".bg-primary").css("background-color");
-        alert(rgb2hex(css));
-        // $.ajax({
-        //     type: "POST",
-        //     url: "{{route('save_warna')}}?warna="+warna,
-        //     success: function (r) {
-        //     }
-        // });
+    $(document).on('change', '#fwarna1', function(){
+        $('.fwarna1').css('color', $(this).val())
+    })
+    $(document).on('change', '#fwarna2', function(){
+        $('.fwarna2').css('color', $(this).val())
+    })
+    $(document).on('change', '#fwarna3', function(){
+        $('.fwarna3').css('color', $(this).val())
     })
 </script>
 @endsection

@@ -1,6 +1,6 @@
 @include('theme.head')
 
-<body style="background-color: #{{$warna_bg}}">
+<body class="warna2" style="background-color: {{$warna_bg}}">
     @include('theme.navbar')
     {{-- @livewire('navbar') --}}
 
@@ -10,14 +10,14 @@
 
     <!-- Footer Start -->
   
-    <div class="container-fluid bg-dark text-light border-top border-secondary py-4">
+    <div class="container-fluid text-secondary border-top py-4 warna1" style="background-color: {{$warna}}">
         <div class="container">
             <div class="row g-5">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-md-0">&copy; <a class="text-primary" href="#">Happy Kids</a>. All Rights Reserved.</p>
+                    <p class="mb-md-0">&copy; <a class="text-secondary" href="#">Happy Kids</a>. All Rights Reserved.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-                    <p class="mb-0">Website oleh <a class="text-primary" href="#">Agrika Group.</a></p>
+                    <p class="mb-0">Website oleh <a class="text-secondary" href="#">Agrika Group.</a></p>
                 </div>
             </div>
         </div>

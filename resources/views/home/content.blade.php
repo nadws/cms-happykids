@@ -10,18 +10,18 @@
 </style>
 
 <!-- Hero Start -->
-<div id="load-home" class="container-fluid bg-primary py-5 mb-5" style="background: url(assets/img/{{$img_hero}}) top right no-repeat; background-size: cover;height: 650px;">
+<div id="load-home" class="container-fluid py-5 mb-5" style="background: url(assets/img/{{$img_hero}}) top right no-repeat; background-size: cover;height: 650px;">
   <div class="container py-5"  data-bs-toggle="tooltip" data-bs-placement="top"
   data-bs-custom-class="custom-tooltip"
   data-bs-title="Gambar Hero">
     <div class="row justify-content-start">
-      <div data-bs-toggle="modal" data-bs-target="#edit-hero-text" class="col-lg-8 text-center text-lg-start border border-danger border-5" style="padding: 3px">
+      <div data-bs-toggle="modal" data-bs-target="#edit-hero-text" class="col-lg-8 text-center text-lg-start border border-a border-5" style="padding: 3px">
 
           <h5
-            class="d-inline-block text-uppercase border-bottom border-5"
+            class="d-inline-block text-uppercase border-bottom border-5 fwarna2"
             style="
               border-color: rgba(256, 256, 256, 0.3) !important;
-              color: #495470;
+              color: {{$fontc2}};
             "
             data-bs-toggle="tooltip" data-bs-placement="top"
             data-bs-custom-class="custom-tooltip"
@@ -31,16 +31,16 @@
           </h5>
           <h1 data-bs-toggle="tooltip" data-bs-placement="top"
           data-bs-custom-class="custom-tooltip"
-          data-bs-title="teks 2" class="display-3 text-secondary mb-md-4">
+          data-bs-title="teks 2" class="display-3 mb-md-4 fwarna1" style="color: {{$fontc1}};">
             {{ $teks2 }}
           </h1>
 
 
         <div class="pt-2">
-          <h5 class="d-inline-block text-uppercase border-bottom border-5"
+          <h5 class="d-inline-block text-uppercase border-bottom border-5 fwarna2"
                         style="
             border-color: rgba(256, 256, 256, 0.3) !important;
-            color: #495470;
+            color: {{$fontc2}};
             font-size: 15px;
           ">
                         Pasien baru klik disini
@@ -97,7 +97,7 @@
 <div class="container-fluid py-5" id="load-about">
   
   <div class="container">
-    <div class="row gx-5 border border-danger border-5" data-bs-toggle="modal" data-bs-target="#edit-tentang-text">
+    <div class="row gx-5 border border-a border-5" data-bs-toggle="modal" data-bs-target="#edit-tentang-text">
       <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
         <div class="position-relative h-100">
           <img
@@ -114,19 +114,19 @@
 
         <div class="mb-4">
           <h5
-            class="d-inline-block text-secondary text-uppercase border-bottom border-5"
+            class="d-inline-block text-uppercase border-bottom border-5 fwarna2" style="color: {{$fontc2}}"
           >
             Tentang Kami
           </h5>
           <h1  data-bs-toggle="tooltip" data-bs-placement="top"
           data-bs-custom-class="custom-tooltip"
-          data-bs-title="Teks 1" class="display-6">     
+          data-bs-title="Teks 1" class="display-6 fwarna1" style="color: {{$fontc1}}">     
             {{ $teks_tentang1 }}
           </h1>
         </div>
         <p  data-bs-toggle="tooltip" data-bs-placement="top"
         data-bs-custom-class="custom-tooltip"
-        data-bs-title="Teks 2">
+        data-bs-title="Teks 2" class="fwarna3" style="color: {{$fontc3}}">
           {{ $teks_tentang2 }}
         </p>
 
@@ -148,10 +148,10 @@
             
           </div>
           <div class="col-sm-6 col-12">
-            <h5 class="d-inline-block text-secondary text-uppercase border-bottom border-5">
+            <h5 style="color: {{$fontc2}}" class="fwarna2 d-inline-block text-uppercase border-bottom border-5">
               Hubungi Kami
           </h5>
-                <table class="table tbl-hub" style="color:#1D2A4D">
+                <table class="table tbl-hub fwarna2" style="color:{{$fontc2}}">
                   <center>
                     <tr  data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-custom-class="custom-tooltip"
@@ -268,17 +268,17 @@
 <!-- Appointment Start -->
 <div
   id="load-appointment"
-  class="container-fluid my-5 py-5"
-  style="background-color: #{{$warna}}"
+  class="container-fluid my-5 py-5 warna1"
+  style="background-color: {{$warna}}"
 >
   <div class="container py-5">
     <div class="row gx-5">
       <div class="col-lg-4 mb-5 mb-lg-0">
         <img style="object-fit: cover" class="w-100 h-50 rounded" src="{{ asset('assets') }}/img/{{$img}}" alt="">
-        <img style="object-fit: cover;" class="w-100 h-50 rounded mt-3" src="{{ asset('assets') }}/img/{{$img_tentang}}" alt="">
+        <img style="object-fit: cover;" class="w-100 h-50 rounded mt-3" src="{{ asset('assets') }}/img/{{$img_tamu}}" alt="">
       </div>
       <div class="col-lg-8">
-        <div class="bg-white rounded p-5 border border-danger border-5" style="padding: 3px" data-bs-toggle="modal" data-bs-target="#edit-tamu-selesai-text">
+        <div class="bg-white rounded p-5 border border-a border-5" style="padding: 3px" data-bs-toggle="modal" data-bs-target="#edit-tamu-selesai-text">
           <h3 class="mb-4 text-center" data-bs-toggle="tooltip" data-bs-placement="top"
           data-bs-custom-class="custom-tooltip"
           data-bs-title="teks 1">{{ $teks_janji1 }}</h3>
@@ -375,12 +375,20 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                  <h5 class="modal-title" id="exampleModalLabel">Edit H1</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Edit Appointment</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                   </button>
             </div>
             <div class="modal-body">
+              <center>
+              <div class="row">
+                <div class="col-lg-6">
+                  <img style="object-fit: cover" src="{{ asset('assets') }}/img/{{$img_tamu}}" class="pb-3" width="200" height="200" alt="">
+                  <input type="file" class="form-control" name="img_tentang">
+                </div>
+              </div>
+            </center>
               <div class="form-group">
                 <label for="">Teks 1</label>
                 <input value="{{ $teks_janji1 }}" type="text" name="teks1" class="form-control">
