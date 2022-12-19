@@ -292,14 +292,14 @@
                   <td data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-custom-class="custom-tooltip"
                     data-bs-title="nominal appointment" style="text-align: left">Appointment: </td>
-                  <td style="text-align: right">{{ number_format($nominal_app,0) }}</td>
+                  <td style="text-align: right">Rp. {{ number_format($nominal_app,0) }}</td>
               </tr>
-              <tr>
+              {{-- <tr>
                   <td style="text-align: left">Total Transfer</td>
                   <th data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-custom-class="custom-tooltip"
                     data-bs-title="nominal transfer" style="text-align: right;color: #34364A">{{ number_format($nominal_tf,0) }}</th>
-              </tr>
+              </tr> --}}
           </table>
           
           <h5 style="text-align: left" class="mt-3 mb-3">Transfer pembayaran</h5>
@@ -404,12 +404,12 @@
                       <input type="text" name="nominal_app" value="{{ $nominal_app }}" class="form-control">
                   </div>
                 </div>
-                <div class="col-lg-6">
+                {{-- <div class="col-lg-6">
                   <div class="form-group">
                       <label for="">Nominal Transfer</label>
                       <input type="text" name="nominal_tf" value="{{ $nominal_tf }}" class="form-control">
                   </div>
-                </div>
+                </div> --}}
               </div>
               <div class="row">
                 <div class="col-lg-3">

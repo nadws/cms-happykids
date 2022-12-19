@@ -85,7 +85,7 @@
     .border-a {
         border-radius: 2rem;
         padding: 5px;
-        border-color: #ffc107;
+        border-color: #ffb9b9;
     }
 </style>
 @yield('styles')

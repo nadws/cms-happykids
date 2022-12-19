@@ -5,12 +5,43 @@
     .style1 {
         -webkit-appearance: none;
         -moz-appearance: none;
-        width: 80px;
+        width: 90px;
         height: 50px;
         border: none;
         cursor: pointer;
         margin-bottom: 10px;
     }
+    .style2 {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 90%;
+        float: right;
+        height: 25px;
+        border: none;
+        cursor: pointer;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+   .bordil {
+    width:100%;
+     height: 50px;
+     border: 2px solid red;
+   }
+   .isidil {
+    margin-top: 3px;
+    width:100%;
+    float: right;
+     height: 400px;
+     border: 2px solid red;
+   }
+   .sidebardil {
+    display: 
+    margin-top: 3px;
+    width:100%;
+     height: 400px;
+     border: 2px solid red;
+   }
+
 </style>
 <div class="container-fluid sticky-top shadow-sm warna1" style="background-color: {{$warna}}">
     <div class="container">
@@ -89,7 +120,7 @@
 <form action="{{ route('save_warna') }}" method="POST" enctype="multipart/form-data">
     @csrf
 <div class="modal" id="edit-theme" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
+    <div class="modal-dialog modal-lg-max" role="document">
         <div class="modal-content">
              <div class="modal-header bg-primary">
                   <h5 class="modal-title" id="exampleModalLabel">Edit Theme</h5>
@@ -99,38 +130,57 @@
              </div>
              <div class="modal-body">
                 <center>
-                <div class="row">
-                    <h5>Colors</h5>
-                    <div class="col-lg-6">
-                        <input class="form-control style1" id="warna1" type="color" value="{{$warna}}" name="warna1">
-                        <label for="" class="text-secondary ml-2">Warna 1</label>
-                        {{-- <input placeholder="warna hexa tanpa '#'" id="warna_val" name="warna1" value="{{ $warna }}" type="text" class="form-control"> --}}
+                    <div class="row">
+                        <h5>Colors</h5>
+                        <div class="col-lg-6">
+                            <input class="form-control style1" id="warna1" type="color" value="{{$warna}}" name="warna1">
+                            <label for="" class="text-secondary ml-2">Navbar, Appointment,Footer</label>
+                            {{-- <input placeholder="warna hexa tanpa '#'" id="warna_val" name="warna1" value="{{ $warna }}" type="text" class="form-control"> --}}
+                        </div>
+                        <div class="col-lg-6">
+                            <input class="form-control style1" id="warna2" type="color" value="{{$warna_bg}}" name="warna2">
+                            <label for="" class="text-secondary ml-2">Background</label>
+                            {{-- <input placeholder="warna hexa tanpa '#'" id="warna_val" name="warna2" value="{{ $warna_bg }}" type="text" class="form-control"> --}}
+                        </div>
                     </div>
-                    <div class="col-lg-6">
-                        <input class="form-control style1" id="warna2" type="color" value="{{$warna_bg}}" name="warna2">
-                        <label for="" class="text-secondary ml-2">Warna 2</label>
-                        {{-- <input placeholder="warna hexa tanpa '#'" id="warna_val" name="warna2" value="{{ $warna_bg }}" type="text" class="form-control"> --}}
+                    <div class="row mt-5">
+                        <h5>Font Colors</h5>
+                        <div class="col-lg-4">
+                            <input class="form-control style1" id="fwarna1" type="color" value="{{$fontc1}}" name="fontc1">
+                            <label for="" class="text-secondary ml-2">Font Besar</label>
+                        </div>
+                        <div class="col-lg-4">
+                            <input class="form-control style1" id="fwarna2" type="color" value="{{$fontc2}}" name="fontc2">
+                            <label for="" class="text-secondary ml-2">Font Sedang</label>
+                        </div>
+                        <div class="col-lg-4">
+                            <input class="form-control style1" id="fwarna3" type="color" value="{{$fontc3}}" name="fontc3">
+                            <label for="" class="text-secondary ml-2">Font Detail</label>
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-5">
-                    <h5>Font Colors</h5>
-                    <div class="col-lg-4">
-                        <input class="form-control style1" id="fwarna1" type="color" value="{{$fontc1}}" name="fontc1">
-                        <label for="" class="text-secondary ml-2">Warna 1</label>
-                        {{-- <input placeholder="warna hexa tanpa '#'" id="warna_val" name="warna1" value="{{ $warna }}" type="text" class="form-control"> --}}
-                    </div>
-                    <div class="col-lg-4">
-                        <input class="form-control style1" id="fwarna2" type="color" value="{{$fontc2}}" name="fontc2">
-                        <label for="" class="text-secondary ml-2">Warna 2</label>
-                        {{-- <input placeholder="warna hexa tanpa '#'" id="warna_val" name="warna2" value="{{ $warna_bg }}" type="text" class="form-control"> --}}
-                    </div>
-                    <div class="col-lg-4">
-                        <input class="form-control style1" id="fwarna3" type="color" value="{{$fontc3}}" name="fontc3">
-                        <label for="" class="text-secondary ml-2">Warna 3</label>
-                        {{-- <input placeholder="warna hexa tanpa '#'" id="warna_val" name="warna2" value="{{ $warna_bg }}" type="text" class="form-control"> --}}
-                    </div>
-                </div>
                 </center>
+                {{-- <div class="bodyl">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="bordil">
+                            <input class="form-control style2" id="warna1" type="color" value="{{$warna}}" name="warna1">
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3 mt-3">
+                            <div class="sidebardil"></div>
+                        </div>
+                        <div class="col-lg-9 mt-3 mb-2">
+                            <div class="isidil"></div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="bordil"></div>
+                        </div>
+                    </div>
+                    
+                </div> --}}
+
+                {{-- <input class="form-control style2" id="warna1" type="color" value="{{$warna}}" name="warna1"> --}}
              </div>
              <div class="modal-footer">
                   <button type="submit" class="btn btn-primary">Edit/Save</button>
