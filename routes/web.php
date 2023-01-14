@@ -9,22 +9,21 @@ Route::get('/', function () {
 });
 
 // save h1 navbar
-Route::post('/save_h1', function(Request $r){
+Route::post('/save_h1', function (Request $r) {
     $jenis = $r->jenis;
-    if($jenis == 'navbar') {
+    if ($jenis == 'navbar') {
 
         $img = DB::table('h1')->where('id_h1', 2)->first();
         $img_dulu = $img->isi;
 
-        if($logo = $r->file('logo')) {
+        if ($logo = $r->file('logo')) {
             $namaImg = $logo->getClientOriginalName();
             $lokasi = 'assets/img/';
-            unlink($lokasi.$img_dulu);
+            unlink($lokasi . $img_dulu);
 
-            
+
             $logo->move($lokasi, $namaImg);
             DB::table('h1')->where('id_h1', 2)->update(['isi' => $namaImg]);
-
         } else {
             DB::table('h1')->where('id_h1', 2)->update(['isi' => $img_dulu]);
         }
@@ -36,22 +35,21 @@ Route::post('/save_h1', function(Request $r){
 })->name('save_h1');
 
 // save hero 
-Route::post('/save_hero', function(Request $r){
+Route::post('/save_hero', function (Request $r) {
     DB::table('h1')->where('id_h1', 3)->update(['isi' => $r->teks1]);
     DB::table('h1')->where('id_h1', 4)->update(['isi' => $r->teks2]);
 
     $img = DB::table('h1')->where('id_h1', 7)->first();
     $img_dulu = $img->isi;
 
-    if($logo = $r->file('hero_img')) {
+    if ($logo = $r->file('hero_img')) {
         $namaImg = $logo->getClientOriginalName();
         $lokasi = 'assets/img/';
-        unlink($lokasi.$img_dulu);
+        unlink($lokasi . $img_dulu);
 
-        
+
         $logo->move($lokasi, $namaImg);
         DB::table('h1')->where('id_h1', 7)->update(['isi' => $namaImg]);
-
     } else {
         DB::table('h1')->where('id_h1', 7)->update(['isi' => $img_dulu]);
     }
@@ -60,27 +58,27 @@ Route::post('/save_hero', function(Request $r){
 })->name('save_hero');
 
 // save tentang 
-Route::post('/save_tentang', function(Request $r){
+Route::post('/save_tentang', function (Request $r) {
     DB::table('h1')->where('id_h1', 8)->update(['isi' => $r->teks_tentang1]);
     DB::table('h1')->where('id_h1', 9)->update(['isi' => $r->teks_tentang2]);
     DB::table('h1')->where('id_h1', 11)->update(['isi' => $r->waktu]);
     DB::table('h1')->where('id_h1', 12)->update(['isi' => $r->alamat]);
     DB::table('h1')->where('id_h1', 13)->update(['isi' => $r->nohp]);
     DB::table('h1')->where('id_h1', 14)->update(['isi' => $r->email]);
+    DB::table('h1')->where('id_h1', 33)->update(['isi' => $r->instagram]);
     DB::table('h1')->where('id_h1', 15)->update(['isi' => $r->maps]);
 
     $img = DB::table('h1')->where('id_h1', 10)->first();
     $img_dulu = $img->isi;
 
-    if($logo = $r->file('img_tentang')) {
+    if ($logo = $r->file('img_tentang')) {
         $namaImg = $logo->getClientOriginalName();
         $lokasi = 'assets/img/';
-        unlink($lokasi.$img_dulu);
+        unlink($lokasi . $img_dulu);
 
-        
+
         $logo->move($lokasi, $namaImg);
         DB::table('h1')->where('id_h1', 10)->update(['isi' => $namaImg]);
-
     } else {
         DB::table('h1')->where('id_h1', 10)->update(['isi' => $img_dulu]);
     }
@@ -88,7 +86,7 @@ Route::post('/save_tentang', function(Request $r){
     return redirect()->route('dashboard');
 })->name('save_tentang');
 
-Route::post('/save_warna', function(Request $r){
+Route::post('/save_warna', function (Request $r) {
     DB::table('h1')->where('id_h1', 16)->update(['isi' => $r->warna1]);
     DB::table('h1')->where('id_h1', 17)->update(['isi' => $r->warna2]);
     DB::table('h1')->where('id_h1', 30)->update(['isi' => $r->fontc1]);
@@ -98,24 +96,23 @@ Route::post('/save_warna', function(Request $r){
     return redirect()->route('dashboard');
 })->name('save_warna');
 
-Route::post('/save_teks_janji', function(Request $r){
+Route::post('/save_teks_janji', function (Request $r) {
     DB::table('h1')->where('id_h1', 18)->update(['isi' => $r->teks_janji]);
     return redirect()->route('dashboard');
 })->name('save_teks_janji');
 
-Route::post('/save_teks_tamu', function(Request $r){
+Route::post('/save_teks_tamu', function (Request $r) {
 
     $img = DB::table('h1')->where('id_h1', 29)->first();
     $img_dulu = $img->isi;
 
-    if($logo = $r->file('img_tentang')) {
+    if ($logo = $r->file('img_tentang')) {
         $namaImg = $logo->getClientOriginalName();
         $lokasi = 'assets/img/';
-        unlink($lokasi.$img_dulu);
+        unlink($lokasi . $img_dulu);
 
         $logo->move($lokasi, $namaImg);
         DB::table('h1')->where('id_h1', 29)->update(['isi' => $namaImg]);
-
     } else {
         DB::table('h1')->where('id_h1', 29)->update(['isi' => $img_dulu]);
     }
@@ -132,8 +129,8 @@ Route::post('/save_teks_tamu', function(Request $r){
         'wa_admin',
         'wa_nohp',
     ];
-    
-    foreach($data as $i => $d) {
+
+    foreach ($data as $i => $d) {
         DB::table('h1')->where('id_h1', $i + 19)->update(['isi' => $r->$d]);
     }
 
@@ -157,6 +154,7 @@ Route::get('/dashboard', function () {
         'alamat' => DB::table('h1')->where('id_h1', 12)->first()->isi,
         'nohp' => DB::table('h1')->where('id_h1', 13)->first()->isi,
         'email' => DB::table('h1')->where('id_h1', 14)->first()->isi,
+        'instagram' => DB::table('h1')->where('id_h1', 33)->first()->isi,
         'maps' => DB::table('h1')->where('id_h1', 15)->first()->isi,
         'warna' => DB::table('h1')->where('id_h1', 16)->first()->isi,
         'fontc1' => DB::table('h1')->where('id_h1', 30)->first()->isi,
@@ -181,4 +179,4 @@ Route::get('/dashboard', function () {
     return view('home.content', $data);
 })->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

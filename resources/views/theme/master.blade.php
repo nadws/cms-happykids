@@ -1,20 +1,21 @@
 @include('theme.head')
 
-<body class="warna2" style="background-color: {{$warna_bg}}">
+<body class="warna2" style="background-color: {{ $warna_bg }}">
     @include('theme.navbar')
     {{-- @livewire('navbar') --}}
 
 
     @yield('content')
-    
+
 
     <!-- Footer Start -->
-  
-    <div class="container-fluid text-secondary border-top py-4 warna1" style="background-color: {{$warna}}">
+
+    <div class="container-fluid text-secondary border-top py-4 warna1" style="background-color: {{ $warna }}">
         <div class="container">
             <div class="row g-5">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-md-0">&copy; <a class="text-secondary" href="#">Happy Kids</a>. All Rights Reserved.</p>
+                    <p class="mb-md-0">&copy; <a class="text-secondary" href="#">Happy Kids</a>. All Rights Reserved.
+                    </p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <p class="mb-0">Website oleh <a class="text-secondary" href="#">Agrika Group.</a></p>
@@ -32,12 +33,12 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{asset('assets')}}/lib/easing/easing.min.js"></script>
-    <script src="{{asset('assets')}}/lib/waypoints/waypoints.min.js"></script>
-    <script src="{{asset('assets')}}/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="{{asset('assets')}}/lib/tempusdominus/js/moment.min.js"></script>
-    <script src="{{asset('assets')}}/lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="{{asset('assets')}}/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="{{ asset('assets') }}/lib/easing/easing.min.js"></script>
+    <script src="{{ asset('assets') }}/lib/waypoints/waypoints.min.js"></script>
+    <script src="{{ asset('assets') }}/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="{{ asset('assets') }}/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="{{ asset('assets') }}/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="{{ asset('assets') }}/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
     {{-- <!-- wajib jquery  -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -50,10 +51,10 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script> --}}
     <!-- Template Javascript -->
-    <script src="{{asset('assets')}}/js/main.js"></script>
+    <script src="{{ asset('assets') }}/js/main.js"></script>
     <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
     @yield('scripts')
     @livewireScripts

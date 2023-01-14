@@ -23,22 +23,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800;900&display=swap" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="{{asset('assets')}}/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="{{asset('assets')}}/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="{{ asset('assets') }}/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="{{ asset('assets') }}/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{asset('assets')}}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('assets') }}/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{asset('assets')}}/css/style.css" rel="stylesheet">
+    <link href="{{ asset('assets') }}/css/style.css" rel="stylesheet">
 
     {{-- sweet alert --}}
-    <script src="{{asset('assets/js/sweetalert2@11.js')}}"></script>
+    <script src="{{ asset('assets/js/sweetalert2@11.js') }}"></script>
 
     <!-- css untuk select2 -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <!-- jika menggunakan bootstrap4 gunakan css ini  -->
-    
+
 </head>
 <style>
     /* * {
@@ -79,9 +79,11 @@
     .navbar-light .navbar-nav .nav-link.active {
         color: var(--primary);
     }
+
     .form-group {
         padding: 8px;
     }
+
     .border-a {
         border-radius: 2rem;
         padding: 5px;
